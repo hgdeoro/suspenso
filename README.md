@@ -1,5 +1,9 @@
 # Suspenso
 
+![Motorcycle](docs/motorcycle.png?raw=true "Title")
+
+![Electronics](docs/mvp_bb.png?raw=true "Title")
+
 ## /sensor
 
 Arduino sketch.
