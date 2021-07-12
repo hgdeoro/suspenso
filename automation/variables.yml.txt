@@ -1,0 +1,7 @@
+---
+laptop_lan_dev: 'eth0'
+laptop_inet_dev: 'wlan0'
+
+raspberrypi_mac_address: 'xx:xx:xx:xx:xx:xx'
+raspberrypi_hostapd_ssid: 'xxxxxxxx'
+raspberrypi_hostapd_wpa_passphrase: '********'

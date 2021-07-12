@@ -1,0 +1,34 @@
+---
+- name: Setup laptop as DHCP server for Raspberry Pi
+  gather_facts: false
+  hosts: 127.0.0.1
+  connection: local
+  become: true
+
+  tasks:
+    - name: Install DHCP server
+      ansible.builtin.package:
+        name: isc-dhcp-server
+        state: present
+
+    - name: Disable service isc-dhcp-server
+      ansible.builtin.service:
+        name: isc-dhcp-server
+        enabled: false
+        state: started
+
+    - name: Template a file to /etc/dhcp/dhcpd.conf
+      ansible.builtin.template:
+        src: dhcpd.conf
+        dest: /etc/dhcp/dhcpd.conf
+        owner: root
+        group: root
+        mode: '0644'
+
+    - name: Template a file to /etc/dhcp/dhcpd.conf
+      ansible.builtin.template:
+        src: setup-networking.sh
+        dest: /usr/local/sbin/suspenso-setup-networking.sh
+        owner: root
+        group: root
+        mode: '0755'

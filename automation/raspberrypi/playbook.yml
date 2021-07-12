@@ -1,0 +1,41 @@
+---
+- name: Setup Raspberry Pi as a server for Arduinos
+  gather_facts: false
+  hosts: raspberrypi
+  remote_user: ubuntu
+  become: true
+
+  tasks:
+    - name: Install hostapd server (fallback)
+      ansible.builtin.shell: which hostapd || apt install hostapd
+      # ^^^ nasty trick, but `ansible.builtin.package` fails
+
+#    - name: Install hostapd server
+#      ansible.builtin.package:
+#        name: hostapd
+#        state: present
+#        enabled: true
+
+    - name: Template a file to /etc/hostapd/hostapd.conf
+      ansible.builtin.template:
+        src: hostapd.conf
+        dest: /etc/hostapd/hostapd.conf
+        owner: root
+        group: root
+        mode: '0644'
+
+    - name: Template a file to /etc/hostapd/accept_mac.txt
+      ansible.builtin.template:
+        src: accept_mac.txt
+        dest: /etc/hostapd/accept_mac.txt
+        owner: root
+        group: root
+        mode: '0644'
+
+    - name: Template a file to /etc/dnsmasq.conf
+      ansible.builtin.template:
+        src: dnsmasq.conf
+        dest: /etc/dnsmasq.conf
+        owner: root
+        group: root
+        mode: '0644'

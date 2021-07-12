@@ -1,0 +1,9 @@
+.pio
+CMakeListsPrivate.txt
+cmake-build-*/ 
+.idea
+.pio
+cmake-build-debug
+cmake-build-nano_33_iot
+CMakeListsPrivate.txt
+CMakeLists.txt
