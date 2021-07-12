@@ -9,13 +9,13 @@ virtualenv:
 #
 
 sensor-clean:
-	./venv/bin/pio run --project-dir sensor-01 --target clean
+	./venv/bin/pio run --project-dir sensor --target clean
 
 sensor-build:
-	./venv/bin/pio run --project-dir sensor-01
+	./venv/bin/pio run --project-dir sensor
 
 sensor-upload:
-	./venv/bin/pio run --project-dir sensor-01 --target upload
+	./venv/bin/pio run --project-dir sensor --target upload
 
 sensor-console:
 	./venv/bin/pio device monitor
