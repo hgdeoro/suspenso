@@ -4,6 +4,8 @@
 
 ![Electronics](docs/mvp_bb.png?raw=true "Title")
 
+Motorcycle image from https://unsplash.com/photos/AMn5p2YX0g0
+
 ## /sensor
 
 Arduino sketch.
@@ -16,3 +18,9 @@ work on other computers.
 ## /suspensopy
 
 Python package.
+
+# License
+
+Not sure if this is the best for software + hardware project. At the moment:
+
+GNU AFFERO GENERAL PUBLIC LICENSE
