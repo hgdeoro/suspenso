@@ -135,7 +135,7 @@ void loop() {
 
     } else {
         const long message_id = start_message();
-        Serial.println("Opcion invalida");
+        Serial.println("Invalid option");
         end_message(message_id);
     }
 }

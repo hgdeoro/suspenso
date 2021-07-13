@@ -1,6 +1,9 @@
+import logging
 import re
 
 import serial
+
+logger = logging.getLogger(__name__)
 
 
 def readlines(client: serial.Serial):
@@ -9,18 +12,19 @@ def readlines(client: serial.Serial):
     while line:
         lines.append(line.rstrip())
         line = client.readline().decode('ascii')
+        logger.debug("Got line: '%s'", line.rstrip())
     return lines
 
 
 def parse_message(lines):
     lines = '\n'.join(lines)
     # <part:1085377743>
-    # Opcion invalida
+    # Invalid option
     # </part:1085377743>
     MESSAGE_REGEX = re.compile(r'<part:(\d+)>(.*)</part:(\d+)>', re.DOTALL)
     match = MESSAGE_REGEX.search(lines)
     if not match:
-        return None
+        return []
 
     ret = match.group(2).splitlines()
     if not ret[0]:
@@ -31,19 +35,20 @@ def parse_message(lines):
 
 
 def main():
-    arduino = serial.Serial(port='/dev/ttyACM0', baudrate=9600, timeout=0.5)
-    readlines(arduino)  # clean buffer
-    print("> sending 'a'")
-    arduino.write(b'a')
+    with serial.Serial(port='/dev/ttyACM0', baudrate=9600, timeout=0.5) as arduino:
+        readlines(arduino)  # clean buffer
+        print("> sending 'a'")
+        arduino.write(b'a')
 
-    print("> waiting for response...")
-    response = readlines(arduino)
-    print("> -------------------- RESPONSE: ")
-    print('\n'.join(response))
-    print("> -------------------- MESSAGE: ")
-    print('\n'.join(parse_message(response)))
-    print("> done")
+        print("> waiting for response...")
+        response = readlines(arduino)
+        print("> -------------------- RESPONSE: ")
+        print('\n'.join(response))
+        print("> -------------------- MESSAGE: ")
+        print('\n'.join(parse_message(response)))
+        print("> done")
 
 
 if __name__ == '__main__':
+    logging.basicConfig(level=logging.DEBUG)
     main()
