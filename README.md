@@ -92,6 +92,7 @@ Anything can change, but so far, these are the design decision.
 
 * Suspenso v0.2:
   * Goal: let's learn about the limits of sending data points using UDP.
+  * [Read more](https://hgdeoro.com/2021/07/sending-data-from-arduino-part-2/)
   * **WORK IN PROGRESS**
 
 # Attribution
