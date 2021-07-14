@@ -218,7 +218,7 @@ int send_udp_to_server_multiple_datapoint_struct(char *ip, unsigned int len) {
 void flood_multiple_datapoint_struct(unsigned int iters) {
     msg_buff_multi_array_reset();
 
-    for (unsigned int len = 1; len <= 140; len++) {
+    for (unsigned int len = 1; len <= MULTI_ARR_SIZE; len++) {
         Serial.print("Flooding with len=");
         Serial.println(len);
 
