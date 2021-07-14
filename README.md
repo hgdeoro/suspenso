@@ -7,6 +7,9 @@ in the front suspension would be good, since that's dangerous.
 
 Is it possible to build such system with simple components? **I have no idea**.
 
+The idea is to keep it as simple as possible. Initial approach will be to create something
+closer to a "data logger", no need to see information in real time.
+
 ![Motorcycle](docs/motorcycle.png?raw=true "MVP")
 
 ## What to measure
@@ -21,6 +24,9 @@ Also, by using accelerometers, maybe it will be possible to compare the values
 read in the wheel vs the value read in the chassis, and thus create some indicator
 about how much force (force? that's the right word?) the suspension absorbed.
 
+In the future: there's lot of ideas, like tire pressure (that affects suspension),
+tire temperature (IR camera?), motorcycle angle, motorcycle distance from road, etc.
+
 ### How to measure position/travel of suspension
 
 Maybe using something like VL53L1X or VL6180X, we can measure the distance from the
@@ -29,7 +35,9 @@ motorcycle fender to the tire, and from that calculate the travel of suspension?
 ## UI
 
 Not defined yet. Probably some web server running on the Raspberry Pi to show
-the information received? This would be simple to implement.
+the information received? This would be simple to implement. A laptop can be
+connected con the wifi network and access some http service running in the
+Raspberry Pi.
 
 ## Protection of Arduino
 
@@ -84,7 +92,7 @@ Anything can change, but so far, these are the design decision.
 
 * Suspenso v0.2:
   * Goal: let's learn about the limits of sending data points using UDP.
-  * WORK IN PROGRESS
+  * **WORK IN PROGRESS**
 
 # Attribution
 
