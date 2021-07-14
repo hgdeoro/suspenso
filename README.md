@@ -88,7 +88,7 @@ Anything can change, but so far, these are the design decision.
 
 * Suspenso v0.1:
   * Goal: as a first approach, let’s try the simplest way to send data using UDP packets.
-  * [Read more](https://hgdeoro.com/2021/07/20210708-playing-with-arduino-nano-33-iot/)
+  * [Read more](https://hgdeoro.com/2021/07/sending-data-from-arduino-part-1/)
 
 * Suspenso v0.2:
   * Goal: let's learn about the limits of sending data points using UDP.
