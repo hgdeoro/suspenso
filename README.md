@@ -1,5 +1,6 @@
 * Main code repository is at **GitLab** https://gitlab.com/hgdeoro/suspenso
 * Mirror at **GitHub** https://github.com/hgdeoro/suspenso
+* **Issue Tracker**: https://gitlab.com/hgdeoro/suspenso/-/issues
 * **Blog** posts at https://hgdeoro.com/tags/suspenso/
 * **Twitter**: https://twitter.com/hgdeoro
 
