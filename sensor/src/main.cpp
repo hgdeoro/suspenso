@@ -32,6 +32,11 @@ void loop() {
     Serial.println("j. flood_multiple_datapoint_struct() - multiple sizes x 100");
     Serial.println("k. flood_multiple_datapoint_struct() - multiple sizes x 1k");
 
+    Serial.println("l. flood_fixed_len_datapoint_struct(124)");
+    Serial.println("m. flood_fixed_len_datapoint_struct(125)");
+    Serial.println("n. flood_fixed_len_datapoint_struct(126)");
+    Serial.println("o. flood_fixed_len_datapoint_struct(127)");
+
     Serial.println("t. LSM6DS3 x 100");
     Serial.println("u. LSM6DS3 x 10_000");
     Serial.println("v. Receive 1 UDP packet");
@@ -116,6 +121,30 @@ void loop() {
         const long message_id = start_message();
         Serial.println("k. flood_multiple_datapoint_struct() - multiple sizes x 1k");
         flood_multiple_datapoint_struct(1000);
+        end_message(message_id);
+
+    } else if (incomingByte == 'l') {
+        const long message_id = start_message();
+        Serial.println("m. flood_fixed_len_datapoint_struct(124) - x 1");
+        flood_fixed_len_datapoint_struct(124, 1);
+        end_message(message_id);
+
+    } else if (incomingByte == 'm') {
+        const long message_id = start_message();
+        Serial.println("m. flood_fixed_len_datapoint_struct(125) - x 1");
+        flood_fixed_len_datapoint_struct(125, 1);
+        end_message(message_id);
+
+    } else if (incomingByte == 'n') {
+        const long message_id = start_message();
+        Serial.println("n. flood_fixed_len_datapoint_struct(126) - x 1");
+        flood_fixed_len_datapoint_struct(126, 1);
+        end_message(message_id);
+
+    } else if (incomingByte == 'o') {
+        const long message_id = start_message();
+        Serial.println("o. flood_fixed_len_datapoint_struct(127) - x 1");
+        flood_fixed_len_datapoint_struct(127, 1);
         end_message(message_id);
 
     } else if (incomingByte == 't') {

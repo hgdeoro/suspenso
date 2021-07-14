@@ -239,3 +239,23 @@ void flood_multiple_datapoint_struct(unsigned int iters) {
     }
 
 }
+
+void flood_fixed_len_datapoint_struct(unsigned int len, unsigned int iters) {
+    msg_buff_multi_array_reset();
+    Serial.print("Flooding with len=");
+    Serial.println(len);
+
+    start_stats();
+
+    for (; iters == 0 || counter <= iters; counter++) {
+        if (counter % 1000 == 0) {
+            print_progress_stat_line();
+        }
+        send_udp_to_server_multiple_datapoint_struct(serverHostname, len);
+    }
+
+    counter--;
+
+    print_final_stat_line(len);
+    print_csv_stat_line(len);
+}

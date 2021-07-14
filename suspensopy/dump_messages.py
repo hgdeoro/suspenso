@@ -20,11 +20,22 @@ def main():
             assert 1 <= num_messages <= MAX_SIZE, f"Invalid num_messages: {num_messages}"
 
             remaining_size = 8 + (num_messages - 1) * 12
+            if remaining_size > 1500 - 4:
+                # This is required because Arduino Nano 33 IoT just sends the first 1500 bytes
+                truncated = True
+                remaining_size = 1500 - 4
+            else:
+                truncated = False
+
             message = file_obj.read(remaining_size)
             assert len(message) == remaining_size, \
                 f"read() returned {len(message)} bytes, expected {remaining_size} bytes"
 
-            print(f"num_messages={num_messages}")
+            if truncated:
+                print(f"num_messages={num_messages} (truncated)")
+            else:
+                print(f"num_messages={num_messages}")
+
             iter_num += 1
 
 

@@ -11,6 +11,8 @@ void flood_multiple_datapoint_struct(unsigned int);
 
 void flood_single_datapoint_two_writes(unsigned int iters);
 
+void flood_fixed_len_datapoint_struct(unsigned int len, unsigned int iters);
+
 void dump_received_udp();
 
 void LSM6DS3_run(int);
