@@ -1,3 +1,8 @@
+* Main code repository is at **GitLab** https://gitlab.com/hgdeoro/suspenso
+* Mirror at **GitHub** https://github.com/hgdeoro/suspenso
+* **Blog** posts at https://hgdeoro.com/tags/suspenso/
+* **Twitter**: https://twitter.com/hgdeoro
+
 ## About Suspenso
 
 The goal is to create a system that will give us information about the motorcycle suspension,
